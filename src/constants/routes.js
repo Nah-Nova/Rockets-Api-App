@@ -5,8 +5,8 @@ export const routes = {
     rocketsList: 'Rockets',
     rocketsDetail: 'rockets.detail',
     
-    missionsList: 'Missions',
-    missionsDetail: 'missions.detail',
+    launchesList: 'Launches',
+    launchesDetail: 'launches.detail',
     
     shipsList: 'Ships',
     shipsDetail: 'ships.detail',

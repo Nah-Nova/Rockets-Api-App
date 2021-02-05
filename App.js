@@ -3,9 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { routes as routeNames } from './src/constants'
-import { CapsulesList, MissionsList, RocketsList, ShipsList } from './src/views';
+import { CapsulesList, LaunchesList, RocketsList, ShipsList } from './src/views';
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
+
 
 const routes = [
   {
@@ -18,8 +18,8 @@ const routes = [
     
   },
   {
-    name: routeNames.missionsList,
-    component: MissionsList,
+    name: routeNames.launchesList,
+    component: LaunchesList,
   
   },
   {
