@@ -5,25 +5,35 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { routes as routeNames } from './src/constants'
 import { CapsulesList, MissionsList, RocketsList, ShipsList } from './src/views';
 
-const routes = {
-  [routeNames.capsulesList]: CapsulesList,
-  [routeNames.missionsList]: MissionsList,
-  [routeNames.rocketsList]: RocketsList,
-  [routeNames.shipsList]: ShipsList,
-}
+const routes = [
+  {
+    name: routeNames.capsulesList,
+    component: CapsulesList,
+    tabBarLabel: 'Capsules'
+  },
+  {
+    name: routeNames.missionsList,
+    component: MissionsList,
+    tabBarLabel: 'Missions'
+  },
+  {
+    name: routeNames.rocketsList,
+    component: RocketsList,
+    tabBarLabel: 'Rockets'
+  },
+  {
+    name: routeNames.shipsList,
+    component: ShipsList,
+    tabBarLabel: 'Ships'
+  },
+]
 
 const Tab = createBottomTabNavigator();
 
 const App = () => (
   <NavigationContainer>
     <Tab.Navigator>
-      {Object.keys(routes).map((name, i) => (
-        <Tab.Screen
-          key={i}
-          name={name}
-          component={routes[name]}
-        />
-      ))}
+      {routes.map((route, i) => <Tab.Screen key={i} {...route} />)}
     </Tab.Navigator>
   </NavigationContainer>
 )
