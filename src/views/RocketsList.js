@@ -1,13 +1,14 @@
 import  React, {useState, useEffect} from 'react';
-import { Button, View, SafeAreaView, FlatList} from 'react-native';
+import { Button, View, SafeAreaView, FlatList, Text} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 export const RocketsList = ({ navigation }) => {
-    const [rockets, setRockets] = useState()
   
-    useEffect(async () => {
-      const res = await axios.get('')
+  const [rockets, setRockets] = useState()
+  
+   useEffect(async () => {
+      const res = await axios.get('https://api.spacexdata.com/v3/rockets')
   
       if (res.status === 200 && res.data) {
         setRockets(rockets)
@@ -20,11 +21,11 @@ export const RocketsList = ({ navigation }) => {
       )
     }
   
-    return (
-      <View style={{ flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+  return (
+    <View style={{ flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start' }}>
         <FlatList></FlatList>
-        <Button title="Go back" onPress={() => navigation.goBack()} />
       </View>
     );
   }
+  
   

@@ -5,26 +5,26 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { routes as routeNames } from './src/constants'
 import { CapsulesList, MissionsList, RocketsList, ShipsList } from './src/views';
 
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 const routes = [
   {
     name: routeNames.capsulesList,
     component: CapsulesList,
-    tabBarLabel: 'Capsules'
-  },
-  {
-    name: routeNames.missionsList,
-    component: MissionsList,
-    tabBarLabel: 'Missions'
   },
   {
     name: routeNames.rocketsList,
     component: RocketsList,
-    tabBarLabel: 'Rockets'
+    
+  },
+  {
+    name: routeNames.missionsList,
+    component: MissionsList,
+  
   },
   {
     name: routeNames.shipsList,
     component: ShipsList,
-    tabBarLabel: 'Ships'
   },
 ]
 

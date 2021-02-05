@@ -1,13 +1,14 @@
 export const routes = {
-    capsulesList: 'capsules.list',
+    capsulesList: 'Capsules',
+    activeBackgroundColor: 'green',
     capsulesDetail: 'capsules.detail',
     
-    rocketsList: 'rockets.list',
+    rocketsList: 'Rockets',
     rocketsDetail: 'rockets.detail',
     
-    missionsList: 'missions.list',
+    missionsList: 'Missions',
     missionsDetail: 'missions.detail',
     
-    shipsList: 'ships.list',
+    shipsList: 'Ships',
     shipsDetail: 'ships.detail',
 }

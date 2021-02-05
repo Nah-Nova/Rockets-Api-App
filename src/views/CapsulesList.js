@@ -7,7 +7,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 export const CapsulesList = ({ navigation }) => {
   return (
     <View style={{ flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start' }}>
-      <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>
   );
 }
