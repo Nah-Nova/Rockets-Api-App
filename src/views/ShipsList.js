@@ -52,7 +52,7 @@ export const ShipsList = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   header: {
-    marginTop: 200,
+    marginTop: 80,
     marginBottom: 16
   },
   title: {
