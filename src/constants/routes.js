@@ -1,6 +1,5 @@
 export const routes = {
     capsulesList: 'Capsules',
-    activeBackgroundColor: 'green',
     capsulesDetail: 'capsules.detail',
     
     rocketsList: 'Rockets',

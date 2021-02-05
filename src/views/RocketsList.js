@@ -2,6 +2,7 @@ import  React, {useState, useEffect} from 'react';
 import { Button, View, SafeAreaView, FlatList, Text} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import axios from 'axios';
 
 export const RocketsList = ({ navigation }) => {
   
@@ -17,14 +18,14 @@ export const RocketsList = ({ navigation }) => {
   
     if (!rockets) {
       return (
-        <Text>Loading...</Text>
+        
+        <Text style={{textAlignVertical: "center",textAlign: "center", textAlignHorizontal: "center", }}>Loading..</Text>
       )
     }
   
   return (
     <View style={{ flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start' }}>
-        <FlatList></FlatList>
-      </View>
+    </View>
     );
   }
   
