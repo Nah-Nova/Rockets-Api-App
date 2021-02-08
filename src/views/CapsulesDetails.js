@@ -29,7 +29,14 @@ export const CapsulesDetails = ({ route, navigation }) => {
 
   return (
     <SafeAreaView style={{paddingHorizontal: 16}}>
-      <Text>{capsule.type}</Text>
+      <Text>Name: {capsule.type}</Text>
+      <Text>Serial Number:{capsule.serial}</Text>
+      <Text>Status:{capsule.status}</Text>
+      <Text>Reused:{capsule.reuse_count}</Text>
+      <Text>Water Landings:{capsule.water_landings}</Text>
+      <Text>Last Update:{capsule.last_update}</Text>
+      <Text>Launches: {capsule.launches}</Text>
+      <Text>Id: {capsule.id}</Text>
     </SafeAreaView>
   );
 }

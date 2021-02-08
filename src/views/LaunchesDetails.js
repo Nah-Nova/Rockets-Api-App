@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, View, SafeAreaView, FlatList, Text, StyleSheet } from 'react-native';
+import { Button, View, SafeAreaView, FlatList, Text, StyleSheet, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import axios from 'axios';
@@ -29,29 +29,13 @@ export const LaunchesDetails = ({ route, navigation }) => {
 
   return (
     <SafeAreaView style={{paddingHorizontal: 16}}>
-      <Text>{launch.name}</Text>
+      <Text>Launch Name: {launch.name}</Text>
+      <Text>Flight Number: {launch.flight_number}</Text>
+      <Text>Rocket id: {launch.rocket}</Text>
+      <Text>Launch Date Local: {launch.date_local}</Text>
+      <Text>Launch Date UTC: {launch.date_utc}</Text>
+      <Image source={{uri: launch.patch_large}} 
+      style={{width:"100%" , height: 400}}/>
     </SafeAreaView>
   );
 }
-const styles = StyleSheet.create({
-  header: {
-    marginTop: 80,
-    marginBottom: 16
-  },
-  title: {
-    fontWeight: '900',
-    fontSize: 32
-  },
-  subTitle: {
-    opacity: .75
-  },
-  item: {
-    padding: 16,
-    marginBottom: 8,
-    borderRadius: 8,
-    backgroundColor: '#e3e3e3'
-  },
-  itemTitle: {
-    fontSize: 24
-  }
-})

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, View, SafeAreaView, FlatList, Text, StyleSheet } from 'react-native';
+import { Button, View, SafeAreaView, FlatList, Text, StyleSheet, Image} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import axios from 'axios';
@@ -29,7 +29,15 @@ export const ShipsDetails = ({ route, navigation }) => {
 
   return (
     <SafeAreaView style={{paddingHorizontal: 16}}>
-      <Text>{ship.name}</Text>
+      <Text>Name: {ship.name}</Text>
+      <Text>Model:{ship.model}</Text>
+      <Text>Type: {ship.type}</Text>
+      <Text>Roles: {ship.roles}</Text>
+      <Text>Construction Year: {ship.year_built}</Text>
+      <Text>Home Port: {ship.home_port}</Text>
+      <Text>Ship ID: {ship.id}</Text>
+      <Image source={{uri: ship.image}} 
+      style={{width:"100%" , height: 400}}/>
     </SafeAreaView>
   );
 }
