@@ -23,6 +23,9 @@ export const RocketsList = ({ navigation }) => {
     return (
       <View style={styles.item}>
         <Text style={styles.itemTitle}>{item.name}</Text>
+        <Button style={styles.button}
+        title="View Details"
+        onPress={() => navigate('Details')}/>
       </View>
     );
   };
@@ -40,6 +43,7 @@ export const RocketsList = ({ navigation }) => {
       <View style={styles.header}>
         <Text style={styles.title}>Rockets</Text>
         <Text style={styles.subTitle}>All Rockets</Text>
+        
       </View>
       <FlatList
         data={rockets}

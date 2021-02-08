@@ -23,6 +23,9 @@ export const ShipsList = ({ navigation }) => {
     return (
       <View style={styles.item}>
         <Text style={styles.itemTitle}>{item.name}</Text>
+        <Button style={styles.button}
+        title="View Details"
+        onPress={() => navigate('Details')}/>
       </View>
     );
   };

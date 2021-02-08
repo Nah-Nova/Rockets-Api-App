@@ -21,7 +21,10 @@ export const CapsulesList = ({ navigation }) => {
   const renderItem = ({ item }) => {
     return (
       <View style={styles.item}>
-        <Text style={styles.itemTitle}>{item.name}</Text>
+        <Text style={styles.itemTitle}>{item.type}</Text>
+        <Button style={styles.button}
+        title="View Details"
+        onPress={() => navigate('Details')}/>
       </View>
     );
   };
@@ -70,5 +73,6 @@ const styles = StyleSheet.create({
   },
   itemTitle: {
     fontSize: 24
-  }
+  },
+
 })
