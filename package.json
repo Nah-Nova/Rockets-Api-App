@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.11.7",
     "@react-navigation/native": "^5.9.2",
@@ -15,6 +16,7 @@
     "axios": "^0.21.1",
     "expo": "~40.0.0",
     "expo-status-bar": "~1.0.3",
+    "fontsource-roboto": "^4.0.0",
     "octicons-react": "^1.0.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
