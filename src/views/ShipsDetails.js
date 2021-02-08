@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import axios from 'axios';
 
-export const ShipsList = ({ navigation }) => {
+export const ShipsDetails = ({ navigation }) => {
 
   const [ships, setShips] = useState()
 
@@ -23,9 +23,6 @@ export const ShipsList = ({ navigation }) => {
     return (
       <View style={styles.item}>
         <Text style={styles.itemTitle}>{item.name}</Text>
-        <Button style={styles.button}
-        title="View Details"
-        onPress={(navigate) => navigate('ShipsDetails')}/>
       </View>
     );
   };

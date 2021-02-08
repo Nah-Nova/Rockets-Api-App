@@ -4,16 +4,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import axios from 'axios';
 
-export const ShipsList = ({ navigation }) => {
+export const LaunchesDetails = ({ navigation }) => {
 
-  const [ships, setShips] = useState()
-
+  const [launches, setLaunches] = useState()
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get('https://api.spacexdata.com/v4/ships')
+      const res = await axios.get('https://api.spacexdata.com/v4/launches')
 
       if (res.status === 200 && res.data) {
-        setShips(res.data)
+        setLaunches(res.data)
       }
     }
     fetchData()
@@ -22,30 +21,28 @@ export const ShipsList = ({ navigation }) => {
   const renderItem = ({ item }) => {
     return (
       <View style={styles.item}>
-        <Text style={styles.itemTitle}>{item.name}</Text>
-        <Button style={styles.button}
-        title="View Details"
-        onPress={(navigate) => navigate('ShipsDetails')}/>
+        <Text style={styles.itemTitle}>{item.name}</Text>      
       </View>
     );
   };
 
-  if (!ships) {
+
+  if (!launches) {
     return (
       <SafeAreaView>
         <Text style={{ textAlign: "center" }}>Loading..</Text>
       </SafeAreaView>
     )
-  }
-
+  } 
+  
   return (
     <SafeAreaView style={{paddingHorizontal: 16}}>
       <View style={styles.header}>
-        <Text style={styles.title}>Ships</Text>
-        <Text style={styles.subTitle}>All ships</Text>
+        <Text style={styles.title}>Launches</Text>
+        <Text style={styles.subTitle}>All Launches</Text>
       </View>
       <FlatList
-        data={ships}
+        data={launches}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />

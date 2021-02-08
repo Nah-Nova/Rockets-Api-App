@@ -24,7 +24,7 @@ export const CapsulesList = ({ navigation }) => {
         <Text style={styles.itemTitle}>{item.type}</Text>
         <Button style={styles.button}
         title="View Details"
-        onPress={() => navigate('Details')}/>
+        onPress={(navigate) => navigate('CapsulesDetails')}/>
       </View>
     );
   };

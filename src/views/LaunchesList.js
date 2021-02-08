@@ -24,7 +24,7 @@ export const LaunchesList = ({ navigation }) => {
         <Text style={styles.itemTitle}>{item.name}</Text>
         <Button style={styles.button}
         title="View Details"
-        onPress={() => navigate('Details')}/>                 
+        onPress={(navigate) => navigate('LaunchesDetails')}/>                 
       </View>
     );
   };

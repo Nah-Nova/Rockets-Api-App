@@ -4,16 +4,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import axios from 'axios';
 
-export const ShipsList = ({ navigation }) => {
+export const CapsulesDetails = ({ navigation }) => {
 
-  const [ships, setShips] = useState()
-
+  const [capsules, setCapsules] = useState()
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get('https://api.spacexdata.com/v4/ships')
+      const res = await axios.get('https://api.spacexdata.com/v4/capsules')
 
       if (res.status === 200 && res.data) {
-        setShips(res.data)
+        setCapsules(res.data)
       }
     }
     fetchData()
@@ -22,15 +21,13 @@ export const ShipsList = ({ navigation }) => {
   const renderItem = ({ item }) => {
     return (
       <View style={styles.item}>
-        <Text style={styles.itemTitle}>{item.name}</Text>
-        <Button style={styles.button}
-        title="View Details"
-        onPress={(navigate) => navigate('ShipsDetails')}/>
+        <Text style={styles.itemTitle}>{item.type}</Text>
       </View>
     );
   };
 
-  if (!ships) {
+
+  if (!capsules) {
     return (
       <SafeAreaView>
         <Text style={{ textAlign: "center" }}>Loading..</Text>
@@ -41,11 +38,11 @@ export const ShipsList = ({ navigation }) => {
   return (
     <SafeAreaView style={{paddingHorizontal: 16}}>
       <View style={styles.header}>
-        <Text style={styles.title}>Ships</Text>
-        <Text style={styles.subTitle}>All ships</Text>
+        <Text style={styles.title}>Capsules</Text>
+        <Text style={styles.subTitle}>All Capsules</Text>
       </View>
       <FlatList
-        data={ships}
+        data={capsules}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
@@ -73,5 +70,6 @@ const styles = StyleSheet.create({
   },
   itemTitle: {
     fontSize: 24
-  }
+  },
+
 })

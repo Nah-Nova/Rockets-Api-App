@@ -1,13 +1,13 @@
 export const routes = {
-    capsulesList: 'Capsules',
-    capsulesDetail: 'capsules.detail',
+    capsulesList: 'capsules.list',
+    capsulesDetails: 'capsules.detail',
     
-    rocketsList: 'Rockets',
-    rocketsDetail: 'rockets.detail',
+    rocketsList: 'rockets.list',
+    rocketsDetails: 'rockets.detail',
     
-    launchesList: 'Launches',
-    launchesDetail: 'launches.detail',
+    launchesList: 'launches.list',
+    launchesDetails: 'launches.detail',
     
-    shipsList: 'Ships',
-    shipsDetail: 'ships.detail',
+    shipsList: 'ships.list',
+    shipsDetails: 'ships.detail',
 }
