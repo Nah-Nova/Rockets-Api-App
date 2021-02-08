@@ -3,6 +3,7 @@ import { Button, View, SafeAreaView, FlatList, Text, StyleSheet } from 'react-na
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import axios from 'axios';
+import { routes } from '../constants';
 
 export const LaunchesList = ({ navigation }) => {
 
@@ -22,9 +23,11 @@ export const LaunchesList = ({ navigation }) => {
     return (
       <View style={styles.item}>
         <Text style={styles.itemTitle}>{item.name}</Text>
-        <Button style={styles.button}
-        title="View Details"
-        onPress={(navigate) => navigate('LaunchesDetails')}/>                 
+        <Button
+          style={styles.button}
+          title="View Details"
+          onPress={() => navigation.navigate(routes.launchesDetails, {id: item.id})}
+        />
       </View>
     );
   };
@@ -55,7 +58,7 @@ export const LaunchesList = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   header: {
-    marginTop: 80,
+    marginTop: 10,
     marginBottom: 16
   },
   title: {

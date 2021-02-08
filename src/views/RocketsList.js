@@ -3,6 +3,7 @@ import { Button, View, SafeAreaView, FlatList, Text, StyleSheet } from 'react-na
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import axios from 'axios';
+
 import { routes } from '../constants';
 
 export const RocketsList = ({ navigation }) => {
@@ -59,7 +60,7 @@ export const RocketsList = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   header: {
-    marginTop: 80,
+    marginTop: 10,
     marginBottom: 16
   },
   title: {

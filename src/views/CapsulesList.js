@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import axios from 'axios';
 
+import { routes } from '../constants';
+
 export const CapsulesList = ({ navigation }) => {
 
   const [capsules, setCapsules] = useState()
@@ -22,9 +24,11 @@ export const CapsulesList = ({ navigation }) => {
     return (
       <View style={styles.item}>
         <Text style={styles.itemTitle}>{item.type}</Text>
-        <Button style={styles.button}
-        title="View Details"
-        onPress={(navigate) => navigate('CapsulesDetails')}/>
+        <Button
+          style={styles.button}
+          title="View Details"
+          onPress={() => navigation.navigate(routes.capsulesDetails, {id: item.id})}
+        />
       </View>
     );
   };
@@ -55,7 +59,7 @@ export const CapsulesList = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   header: {
-    marginTop: 80,
+    marginTop: 10,
     marginBottom: 16
   },
   title: {

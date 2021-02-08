@@ -4,12 +4,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import axios from 'axios';
 
-export const LaunchesDetails = ({ navigation }) => {
+export const LaunchesDetails = ({ route, navigation }) => {
+  const {id} = route.params
+  const [launch, setLaunches] = useState()
 
-  const [launches, setLaunches] = useState()
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get('https://api.spacexdata.com/v4/launches')
+      const res = await axios.get(`https://api.spacexdata.com/v4/launches/${id}`)
 
       if (res.status === 200 && res.data) {
         setLaunches(res.data)
@@ -18,38 +19,20 @@ export const LaunchesDetails = ({ navigation }) => {
     fetchData()
   }, [])
 
-  const renderItem = ({ item }) => {
-    return (
-      <View style={styles.item}>
-        <Text style={styles.itemTitle}>{item.name}</Text>      
-      </View>
-    );
-  };
-
-
-  if (!launches) {
+  if (!launch) {
     return (
       <SafeAreaView>
         <Text style={{ textAlign: "center" }}>Loading..</Text>
       </SafeAreaView>
     )
-  } 
-  
+  }
+
   return (
     <SafeAreaView style={{paddingHorizontal: 16}}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Launches</Text>
-        <Text style={styles.subTitle}>All Launches</Text>
-      </View>
-      <FlatList
-        data={launches}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
+      <Text>{launch.name}</Text>
     </SafeAreaView>
   );
 }
-
 const styles = StyleSheet.create({
   header: {
     marginTop: 80,

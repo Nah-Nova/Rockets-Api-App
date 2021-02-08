@@ -4,30 +4,22 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import axios from 'axios';
 
-export const ShipsDetails = ({ navigation }) => {
-
-  const [ships, setShips] = useState()
+export const ShipsDetails = ({ route, navigation }) => {
+  const {id} = route.params
+  const [ship, setShip] = useState()
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get('https://api.spacexdata.com/v4/ships')
+      const res = await axios.get(`https://api.spacexdata.com/v4/ships/${id}`)
 
       if (res.status === 200 && res.data) {
-        setShips(res.data)
+        setShip(res.data)
       }
     }
     fetchData()
   }, [])
 
-  const renderItem = ({ item }) => {
-    return (
-      <View style={styles.item}>
-        <Text style={styles.itemTitle}>{item.name}</Text>
-      </View>
-    );
-  };
-
-  if (!ships) {
+  if (!ship) {
     return (
       <SafeAreaView>
         <Text style={{ textAlign: "center" }}>Loading..</Text>
@@ -37,38 +29,7 @@ export const ShipsDetails = ({ navigation }) => {
 
   return (
     <SafeAreaView style={{paddingHorizontal: 16}}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Ships</Text>
-        <Text style={styles.subTitle}>All ships</Text>
-      </View>
-      <FlatList
-        data={ships}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
+      <Text>{ship.name}</Text>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  header: {
-    marginTop: 80,
-    marginBottom: 16
-  },
-  title: {
-    fontWeight: '900',
-    fontSize: 32
-  },
-  subTitle: {
-    opacity: .75
-  },
-  item: {
-    padding: 16,
-    marginBottom: 8,
-    borderRadius: 8,
-    backgroundColor: '#e3e3e3'
-  },
-  itemTitle: {
-    fontSize: 24
-  }
-})

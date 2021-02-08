@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import axios from 'axios';
 
+import { routes } from '../constants';
+
 export const ShipsList = ({ navigation }) => {
 
   const [ships, setShips] = useState()
@@ -23,9 +25,11 @@ export const ShipsList = ({ navigation }) => {
     return (
       <View style={styles.item}>
         <Text style={styles.itemTitle}>{item.name}</Text>
-        <Button style={styles.button}
-        title="View Details"
-        onPress={(navigate) => navigate('ShipsDetails')}/>
+        <Button
+          style={styles.button}
+          title="View Details"
+          onPress={() => navigation.navigate(routes.shipsDetails, {id: item.id})}
+        />
       </View>
     );
   };
@@ -55,7 +59,7 @@ export const ShipsList = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   header: {
-    marginTop: 80,
+    marginTop: 10,
     marginBottom: 16
   },
   title: {

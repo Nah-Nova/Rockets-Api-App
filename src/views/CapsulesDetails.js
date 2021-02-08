@@ -4,30 +4,22 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import axios from 'axios';
 
-export const CapsulesDetails = ({ navigation }) => {
+export const CapsulesDetails = ({ route, navigation }) => {
+  const {id} = route.params
+  const [capsule, setCapsule] = useState()
 
-  const [capsules, setCapsules] = useState()
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get('https://api.spacexdata.com/v4/capsules')
+      const res = await axios.get(`https://api.spacexdata.com/v4/capsules/${id}`)
 
       if (res.status === 200 && res.data) {
-        setCapsules(res.data)
+        setCapsule(res.data)
       }
     }
     fetchData()
   }, [])
 
-  const renderItem = ({ item }) => {
-    return (
-      <View style={styles.item}>
-        <Text style={styles.itemTitle}>{item.type}</Text>
-      </View>
-    );
-  };
-
-
-  if (!capsules) {
+  if (!capsule) {
     return (
       <SafeAreaView>
         <Text style={{ textAlign: "center" }}>Loading..</Text>
@@ -37,39 +29,7 @@ export const CapsulesDetails = ({ navigation }) => {
 
   return (
     <SafeAreaView style={{paddingHorizontal: 16}}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Capsules</Text>
-        <Text style={styles.subTitle}>All Capsules</Text>
-      </View>
-      <FlatList
-        data={capsules}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
+      <Text>{capsule.type}</Text>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  header: {
-    marginTop: 80,
-    marginBottom: 16
-  },
-  title: {
-    fontWeight: '900',
-    fontSize: 32
-  },
-  subTitle: {
-    opacity: .75
-  },
-  item: {
-    padding: 16,
-    marginBottom: 8,
-    borderRadius: 8,
-    backgroundColor: '#e3e3e3'
-  },
-  itemTitle: {
-    fontSize: 24
-  },
-
-})
