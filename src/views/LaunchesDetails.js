@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Button, View, SafeAreaView, FlatList, Text, StyleSheet, Image } from 'react-native';
+import { Button, View, SafeAreaView, ScrollView, FlatList, Text, StyleSheet, Image } from 'react-native';
 import axios from 'axios';
-import 'fontsource-roboto';
+
 
 export const LaunchesDetails = ({ route, navigation }) => {
   const {id} = route.params
@@ -27,15 +27,49 @@ export const LaunchesDetails = ({ route, navigation }) => {
   }
 
   return (
-    <SafeAreaView style={{paddingHorizontal: 16}}>
-      <Text>Launch Name: {launch.name}</Text>
-      <Text>Flight Number: {launch.flight_number}</Text>
-      <Text>Rocket id: {launch.rocket}</Text>
-      <Text>Launch Date Local: {launch.date_local}</Text>
-      <Text>Launch Date UTC: {launch.date_utc}</Text>
+    <ScrollView style={styles.scrollview}>
+      <Text style={styles.title}>{launch.name}</Text>
+      <Text style={styles.subTitle}>Flight Number: {launch.flight_number}</Text>
       <Image source={{uri: launch.links.patch.large}} 
       style={{width:"100%" , height: 400}}/>
-      <Text>Launch Details: {launch.details}</Text>
-    </SafeAreaView>
+      <Text style={styles.itemTitle}>Launch Information: </Text>
+      <Text style={styles.item}>Launch Details: {launch.details}</Text>
+      <Text style={styles.item}>Rocket id: {launch.rocket}</Text>
+      <Text style={styles.item}>Launch Date Local: {launch.date_local}</Text>
+      <Text style={styles.item}>Launch Date UTC: {launch.date_utc}</Text>
+    </ScrollView>
   );
 }
+const styles = StyleSheet.create({
+  header: {
+    marginTop: 10,
+    marginBottom: 16
+  },
+  scrollview: {
+    paddingTop: 16,
+    backgroundColor: "#000000"
+  },
+  title: {
+    fontWeight:"900",
+    fontSize: 32,
+    textAlign: "center",
+    color: "white"
+  },
+  subTitle: {
+    fontSize: 20,
+    textAlign: "center",
+    color: "white"
+  },
+  item: {
+    padding: 16,
+    marginBottom: 8,
+    borderRadius: 8,
+    backgroundColor: '#e3e3e3'
+  },
+  itemTitle: {
+    fontSize: 24,
+    textAlign: "center",
+    color: "white"
+  }
+})
+

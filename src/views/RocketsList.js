@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Button, View, SafeAreaView, FlatList, Text, StyleSheet } from 'react-native';
+import { Button, View, SafeAreaView, FlatList, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
-import 'fontsource-roboto';
 
 import { routes } from '../constants';
 
@@ -24,14 +23,15 @@ export const RocketsList = ({ navigation }) => {
     return (
       <View style={styles.item}>
         <Text style={styles.itemTitle}>{item.name}</Text>
-        <Button
+        <TouchableOpacity
           style={styles.button}
-          title="View Details"
-          onPress={() => navigation.navigate(routes.rocketsDetails, {id: item.id})}
-        />
+          onPress={() => navigation.navigate(routes.rocketsDetails, {id: item.id})}>
+        <Text style={styles.text}>View Details</Text>
+        </TouchableOpacity>
       </View>
     );
   };
+
 
   if (!rockets) {
     return (
@@ -42,7 +42,7 @@ export const RocketsList = ({ navigation }) => {
   }
 
   return (
-    <SafeAreaView style={{paddingHorizontal: 16}}>
+    <SafeAreaView style={styles.scrollview}>
       <View style={styles.header}>
         <Text style={styles.title}>Rockets</Text>
         <Text style={styles.subTitle}>All Rockets</Text>
@@ -62,12 +62,29 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 16
   },
+  text:{
+    textAlign: "center",
+    color: "black"
+  },
+  button: {
+    backgroundColor: "#f44336",
+    color: "black",
+  },
+  scrollview: {
+    paddingHorizontal: 10,
+    paddingTop: 5,
+    backgroundColor: "#000000"
+  },
   title: {
-    fontWeight: '900',
-    fontSize: 32
+    fontWeight:"900",
+    fontSize: 32,
+    textAlign: "center",
+    color: "white"
   },
   subTitle: {
-    opacity: .75
+    fontSize: 20,
+    textAlign: "center",
+    color: "white"
   },
   item: {
     padding: 16,
@@ -76,6 +93,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#e3e3e3'
   },
   itemTitle: {
-    fontSize: 24
+    fontSize: 24,
+    textAlign: "center",
+    color: "black"
   }
 })

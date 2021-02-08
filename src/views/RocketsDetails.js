@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, View, SafeAreaView, FlatList, Text, StyleSheet } from 'react-native';
 import axios from 'axios';
-import 'fontsource-roboto';
+
 
 export const RocketsDetails = ({ route, navigation }) => {
   const {id} = route.params

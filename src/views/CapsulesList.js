@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Button, View, SafeAreaView, FlatList, Text, StyleSheet } from 'react-native';
+import { Button, View, SafeAreaView, FlatList, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
-import 'fontsource-roboto';
-import { Button } from '@material-ui/core';
+
+
 
 import { routes } from '../constants';
 
@@ -24,14 +24,15 @@ export const CapsulesList = ({ navigation }) => {
     return (
       <View style={styles.item}>
         <Text style={styles.itemTitle}>{item.type}</Text>
-        <Button
+        <TouchableOpacity
           style={styles.button}
-          title="View Details"
-          onPress={() => navigation.navigate(routes.capsulesDetails, {id: item.id})}
-        />
+          onPress={() => navigation.navigate(routes.capsulesDetails, {id: item.id})}>
+        <Text style={styles.text}>View Details</Text>
+        </TouchableOpacity>
       </View>
     );
   };
+
 
 
   if (!capsules) {
@@ -43,7 +44,7 @@ export const CapsulesList = ({ navigation }) => {
   }
 
   return (
-    <SafeAreaView style={{paddingHorizontal: 16}}>
+    <SafeAreaView style={styles.scrollview}>
       <View style={styles.header}>
         <Text style={styles.title}>Capsules</Text>
         <Text style={styles.subTitle}>All Capsules</Text>
@@ -62,12 +63,29 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 16
   },
+  text:{
+    textAlign: "center",
+    color: "black"
+  },
+  button: {
+    backgroundColor: "#f44336",
+    color: "black",
+  },
+  scrollview: {
+    paddingHorizontal: 10,
+    paddingTop: 5,
+    backgroundColor: "#000000"
+  },
   title: {
-    fontWeight: '900',
-    fontSize: 32
+    fontWeight:"900",
+    fontSize: 32,
+    textAlign: "center",
+    color: "white"
   },
   subTitle: {
-    opacity: .75
+    fontSize: 20,
+    textAlign: "center",
+    color: "white"
   },
   item: {
     padding: 16,
@@ -76,7 +94,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#e3e3e3'
   },
   itemTitle: {
-    fontSize: 24
-  },
-
+    fontSize: 24,
+    textAlign: "center",
+    color: "black"
+  }
 })
