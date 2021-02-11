@@ -1,7 +1,7 @@
 import  React from 'react';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Ionicons } from '@expo/vector-icons';
 
 import { routes as routeNames } from './src/constants'
 import { CapsulesList, LaunchesList, RocketsList, ShipsList, CapsulesDetails, LaunchesDetails, RocketsDetails, ShipsDetails } from './src/views';
@@ -93,14 +93,12 @@ const ShipsStackScreen = () => (
 const Tab = createBottomTabNavigator();
 const App = () => (
   <NavigationContainer theme={DarkTheme}>
-    <Tab.Navigator initialRouteName="capsules.list"
-        shifting={true}
-        labeled={false}
-        sceneAnimationEnabled={false}
-        activeColor="#00aea2"
-        inactiveColor="#95a5a6"
-        barStyle={{ backgroundColor: '#ffff' }}
-  >
+    <Tab.Navigator 
+      tabBarOptions={{
+        activeTintColor: 'red',
+        inactiveTintColor: 'white',
+        }}
+      >
       <Tab.Screen name='Capsules' component={CapsulesStackScreen}/>
       <Tab.Screen name='Rockets' component={RocketsStackScreen}/>
       <Tab.Screen name='Launches' component={LaunchesStackScreen}/>
