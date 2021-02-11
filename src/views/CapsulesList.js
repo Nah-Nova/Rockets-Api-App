@@ -5,6 +5,7 @@ import axios from 'axios';
 
 
 import { routes } from '../constants';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export const CapsulesList = ({ navigation }) => {
 
@@ -96,6 +97,6 @@ const styles = StyleSheet.create({
   itemTitle: {
     fontSize: 24,
     textAlign: "center",
-    color: "black"
+    color: "#000000"
   }
 })

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, View, SafeAreaView, FlatList, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Button, View, SafeAreaView, FlatList, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import axios from 'axios';
 
 
