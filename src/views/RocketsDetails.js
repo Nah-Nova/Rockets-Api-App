@@ -38,7 +38,7 @@ export const RocketsDetails = ({ route, navigation }) => {
       <Text style={styles.item}>Active: {rocket.active}</Text>
       <Text style={styles.item}>Stages: {rocket.stages}</Text>
       <Text style={styles.item}>Boosters: {rocket.boosters}</Text>
-      <Text style={styles.item}>Cost per launch:{rocket.cost_per_launch}</Text>
+      <Text style={styles.item}>Cost per launch: {rocket.cost_per_launch}</Text>
       <Text style={styles.item}>Succes Rate: {rocket.succes_rate_pct}</Text>
       <Text style={styles.item}>First Launch: {rocket.first_flight}</Text>
       <Text style={styles.item}>Country: {rocket.country}</Text>
@@ -62,7 +62,9 @@ const styles = StyleSheet.create({
     fontWeight:"900",
     fontSize: 32,
     textAlign: "center",
-    color: "white"
+    color: "white",
+    borderColor: 'red',
+    borderWidth: 3
   },
   subTitle: {
     fontSize: 20,
@@ -78,6 +80,8 @@ const styles = StyleSheet.create({
   itemTitle: {
     fontSize: 24,
     textAlign: "center",
-    color: "white"
+    color: "white",
+    borderColor: 'red',
+    borderWidth: 3
   }
 })

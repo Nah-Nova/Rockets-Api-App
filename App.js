@@ -1,11 +1,11 @@
 import  React from 'react';
-import { NavigationContainer, DefaultTheme, DarkTheme, Image } from '@react-navigation/native';
+import { NavigationContainer, DarkTheme,} from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import 'react-native-gesture-handler';
 
 import { routes as routeNames } from './src/constants'
-import { CapsulesList, LaunchesList, RocketsList, ShipsList, CapsulesDetails, LaunchesDetails, RocketsDetails, ShipsDetails } from './src/views';
+import { CapsulesList, LaunchesList, RocketsList, ShipsList, CapsulesDetails, LaunchesDetails, RocketsDetails, ShipsDetails, } from './src/views';
 import { createStackNavigator } from '@react-navigation/stack';
 
 // An array containing all the shared routes. Basically all the available routes except for the the entry screen per tab

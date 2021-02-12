@@ -29,7 +29,7 @@ export const CapsulesDetails = ({ route, navigation }) => {
 
   return (
     <ScrollView style={styles.scrollview}>
-      <Text style={styles.title}>Name: {capsule.type}</Text>
+      <Text style={styles.title}>{capsule.type}</Text>
       <Text style={styles.itemTitle}>Capsule Information:</Text>
       <Text style={styles.item}>Serial Number:{capsule.serial}</Text>
       <Text style={styles.item}>Status:{capsule.status}</Text>
@@ -65,7 +65,9 @@ const styles = StyleSheet.create({
     fontWeight:"900",
     fontSize: 32,
     textAlign: "center",
-    color: "white"
+    color: "white",
+    borderColor: 'red',
+    borderWidth: 3
   },
   subTitle: {
     fontSize: 20,
@@ -81,6 +83,6 @@ const styles = StyleSheet.create({
   itemTitle: {
     fontSize: 24,
     textAlign: "center",
-    color: "white"
+    color: "white",
   }
 })

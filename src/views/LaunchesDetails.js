@@ -29,12 +29,12 @@ export const LaunchesDetails = ({ route, navigation }) => {
   return (
     <ScrollView style={styles.scrollview}>
       <Text style={styles.title}>{launch.name}</Text>
-      <Text style={styles.subTitle}>Flight Number: {launch.flight_number}</Text>
       <Image source={{uri: launch.links.patch.large}} 
       style={{width:"100%" , height: 400}}/>
       <Text style={styles.itemTitle}>Launch Information: </Text>
       <Text style={styles.item}>Launch Details: {launch.details}</Text>
       <Text style={styles.item}>Rocket id: {launch.rocket}</Text>
+      <Text style={styles.item}>Flight Number: {launch.flight_number}</Text>
       <Text style={styles.item}>Launch Date Local: {launch.date_local}</Text>
       <Text style={styles.item}>Launch Date UTC: {launch.date_utc}</Text>
     </ScrollView>
@@ -53,7 +53,9 @@ const styles = StyleSheet.create({
     fontWeight:"900",
     fontSize: 32,
     textAlign: "center",
-    color: "white"
+    color: "white",
+    borderColor: 'red',
+    borderWidth: 3
   },
   subTitle: {
     fontSize: 20,
@@ -69,7 +71,9 @@ const styles = StyleSheet.create({
   itemTitle: {
     fontSize: 24,
     textAlign: "center",
-    color: "white"
+    color: "white",
+    borderColor: 'red',
+    borderWidth: 3
   }
 })
 

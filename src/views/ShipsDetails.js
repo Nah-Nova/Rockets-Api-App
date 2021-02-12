@@ -30,7 +30,6 @@ export const ShipsDetails = ({ route, navigation }) => {
   return (
     <ScrollView style={styles.scrollview}>
       <Text style={styles.title}>{ship.name}</Text>
-      <Text style={styles.subTitle}>Model:{ship.model}</Text>
       <Image source={{uri: ship.image}} 
       style={{width:"100%" , height: 400}}/>
       <Text style={styles.itemTitle}>Ship Information:</Text>
@@ -38,6 +37,7 @@ export const ShipsDetails = ({ route, navigation }) => {
       <Text style={styles.item}>Roles: {ship.roles}</Text>
       <Text style={styles.item}>Construction Year: {ship.year_built}</Text>
       <Text style={styles.item}>Home Port: {ship.home_port}</Text>
+      <Text style={styles.item}>Model:{ship.model}</Text>
       <Text style={styles.item}>Ship ID: {ship.id}</Text>
     </ScrollView>
   );
@@ -64,7 +64,9 @@ const styles = StyleSheet.create({
     fontWeight:"900",
     fontSize: 32,
     textAlign: "center",
-    color: "white"
+    color: "white",
+    borderColor: 'red',
+    borderWidth: 3
   },
   subTitle: {
     fontSize: 20,
@@ -80,6 +82,8 @@ const styles = StyleSheet.create({
   itemTitle: {
     fontSize: 24,
     textAlign: "center",
-    color: "white"
+    color: "white",
+    borderColor: 'red',
+    borderWidth: 3
   }
 })

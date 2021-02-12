@@ -69,6 +69,9 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#f44336",
     color: "black",
+    borderColor: 'black',
+    borderWidth: 2
+  
   },
   scrollview: {
     paddingHorizontal: 10,
@@ -76,7 +79,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#000000"
   },
   title: {
-    fontWeight:"900",
+    fontWeight:"bold",
     fontSize: 32,
     textAlign: "center",
     color: "white"
@@ -93,6 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e3e3e3'
   },
   itemTitle: {
+    fontWeight:"bold",
     fontSize: 24,
     textAlign: "center",
     color: "black"
