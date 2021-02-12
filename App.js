@@ -1,7 +1,8 @@
 import  React from 'react';
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme, DarkTheme, Image } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import 'react-native-gesture-handler';
 
 import { routes as routeNames } from './src/constants'
 import { CapsulesList, LaunchesList, RocketsList, ShipsList, CapsulesDetails, LaunchesDetails, RocketsDetails, ShipsDetails } from './src/views';
@@ -99,10 +100,46 @@ const App = () => (
         inactiveTintColor: 'white',
         }}
       >
-      <Tab.Screen name='Capsules' component={CapsulesStackScreen}/>
-      <Tab.Screen name='Rockets' component={RocketsStackScreen}/>
-      <Tab.Screen name='Launches' component={LaunchesStackScreen}/>
-      <Tab.Screen name='Ships' component={ShipsStackScreen}/>
+      <Tab.Screen 
+      name='Capsules' 
+      component={CapsulesStackScreen} 
+      options={{
+       tabBarLabel: 'Capsules',
+       tabBarIcon: ({ color }) => (
+        <MaterialCommunityIcons name="battery" color={color} size={26} />
+        ),
+       }}
+     />
+      <Tab.Screen 
+      name='Rockets' 
+      component={RocketsStackScreen}
+      options={{
+        tabBarLabel: 'Rockets',
+        tabBarIcon: ({ color }) => (
+          <MaterialCommunityIcons name="rocket-outline" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen 
+      name='Launches' 
+      component={LaunchesStackScreen}
+      options={{
+        tabBarLabel: 'Launches',
+        tabBarIcon: ({ color }) => (
+           <MaterialCommunityIcons name="rocket-launch-outline" color={color} size={26} />
+         ),
+       }}
+     />
+      <Tab.Screen 
+        name='Ships' 
+        component={ShipsStackScreen}  
+        options={{
+         tabBarLabel: 'Ships',
+         tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="ship-wheel" color={color} size={26} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   </NavigationContainer>
 )

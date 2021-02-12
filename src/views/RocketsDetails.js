@@ -30,8 +30,10 @@ export const RocketsDetails = ({ route, navigation }) => {
   return (
     <ScrollView style={styles.scrollview}>
       <Text style={styles.title}>{rocket.name}</Text>
-      <Text style={styles.subTitle}>Description: {rocket.description}</Text>
+      <Image source={{uri: rocket.flickr_images[0]}} 
+      style={{width:"100%" , height: 400}}/>
       <Text style={styles.itemTitle}>Rocket Information:</Text>
+      <Text style={styles.item}>Description: {rocket.description}</Text>
       <Text style={styles.item}>Type: {rocket.type}</Text>
       <Text style={styles.item}>Active: {rocket.active}</Text>
       <Text style={styles.item}>Stages: {rocket.stages}</Text>
