@@ -1,6 +1,7 @@
 import  React from 'react';
-import { NavigationContainer, DarkTheme,} from '@react-navigation/native';
+import { NavigationContainer,} from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import 'react-native-gesture-handler';
 
@@ -93,7 +94,7 @@ const ShipsStackScreen = () => (
 // Configure the tabs and call the sub navigators
 const Tab = createBottomTabNavigator();
 const App = () => (
-  <NavigationContainer theme={DarkTheme}>
+  <NavigationContainer theme={theme}>
     <Tab.Navigator 
       tabBarOptions={{
         activeTintColor: 'red',
@@ -143,5 +144,4 @@ const App = () => (
     </Tab.Navigator>
   </NavigationContainer>
 )
-
 export default App 
