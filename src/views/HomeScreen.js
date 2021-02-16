@@ -1,14 +1,16 @@
 import React from 'react';
-import { StatusBar } from 'react-native'
+import { StatusBar } from 'react-native';
 import styled, { ThemeProvider } from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { Text } from 'react-native';
 
 import { switchTheme } from '../redux/themeActions'
-import { lightTheme, darkTheme } from "../Theme";
+import { lightTheme, darkTheme } from "./Theme";
+
+import { routes } from '../constants';
 
 
-export default function HomeScreen() {
+export const HomeScreen = ({}) => {
     const theme = useSelector((state) => state.themeReducer.theme);
     const dispatch = useDispatch();
 
@@ -33,9 +35,7 @@ export default function HomeScreen() {
                     )}
             </Container>
         </ThemeProvider>
-
-
-
+        
     );
 }
 

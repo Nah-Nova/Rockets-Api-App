@@ -1,12 +1,12 @@
 import  React from 'react';
-import { NavigationContainer,} from '@react-navigation/native';
+import { NavigationContainer,DarkTheme} from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import 'react-native-gesture-handler';
 
 import { routes as routeNames } from './src/constants'
-import { CapsulesList, LaunchesList, RocketsList, ShipsList, CapsulesDetails, LaunchesDetails, RocketsDetails, ShipsDetails, } from './src/views';
+import { CapsulesList, LaunchesList, RocketsList, ShipsList, CapsulesDetails, LaunchesDetails, RocketsDetails, ShipsDetails, HomeScreen } from './src/views';
 import { createStackNavigator } from '@react-navigation/stack';
 
 // An array containing all the shared routes. Basically all the available routes except for the the entry screen per tab
@@ -61,6 +61,21 @@ const RocketsStackScreen = () => (
   </RocketsStack.Navigator>
 )
 
+// Define every view available in the "Home" tab
+const HomeStack= createStackNavigator()
+const homeRoutes = [{
+  name: routeNames.homeScreen,
+  component: HomeScreen,
+}, ...routes]
+
+const HomeStackScreen = () => (
+  <HomeStack.Navigator>
+    {homeRoutes.map((route, i) => (
+      <HomeStack.Screen key={i} {...route}/>
+    ))}
+  </HomeStack.Navigator>
+)
+
 // Define every view available in the "Launches" tab
 const LaunchesStack = createStackNavigator()
 const launchesRoutes = [{
@@ -94,7 +109,7 @@ const ShipsStackScreen = () => (
 // Configure the tabs and call the sub navigators
 const Tab = createBottomTabNavigator();
 const App = () => (
-  <NavigationContainer theme={theme}>
+  <NavigationContainer theme={DarkTheme}>
     <Tab.Navigator 
       tabBarOptions={{
         activeTintColor: 'red',
@@ -121,6 +136,16 @@ const App = () => (
           ),
         }}
       />
+      <Tab.Screen 
+      name='Home' 
+      component={HomeStackScreen} 
+      options={{
+       tabBarLabel: 'Home',
+       tabBarIcon: ({ color }) => (
+        <MaterialCommunityIcons name="home-outline" color={color} size={26} />
+        ),
+       }}
+     />
       <Tab.Screen 
       name='Launches' 
       component={LaunchesStackScreen}

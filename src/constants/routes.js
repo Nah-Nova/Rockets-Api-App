@@ -4,7 +4,9 @@ export const routes = {
     
     rocketsList: 'rockets.list',
     rocketsDetails: 'rockets.detail',
-    
+
+    homeScreen:'home.screen',
+
     launchesList: 'launches.list',
     launchesDetails: 'launches.detail',
     
