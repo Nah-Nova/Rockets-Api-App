@@ -5,6 +5,8 @@ export const darkTheme ={
     PRIMARY_BUTTON_COLOR:"#23a8d9",
     PRIMARY_BUTTON_TEXT_COLOR:"#ffffff",
     STATUS_BAR_STYLE:"#light-content",
+    ACTIVE_TINT_COLOR:"#red",
+    INACTIVE_TINT_COLOR:"white"
 };
 
 export const lightTheme ={
@@ -14,4 +16,6 @@ export const lightTheme ={
     PRIMARY_BUTTON_COLOR:"#8022d9",
     PRIMARY_BUTTON_TEXT_COLOR:"#ffffff",
     STATUS_BAR_STYLE:"#default",
-    };
+    ACTIVE_TINT_COLOR:"#red",
+    INACTIVE_TINT_COLOR:"black"
+};

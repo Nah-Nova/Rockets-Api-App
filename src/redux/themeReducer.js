@@ -1,4 +1,4 @@
-import{lightTheme} from '../Theme'
+import{lightTheme} from '../views/Theme'
 import {SWITCH_THEME} from './themeActions'
 
 const initialState ={
