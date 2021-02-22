@@ -1,14 +1,14 @@
 //react import
-import  React from 'react';
-import { NavigationContainer} from '@react-navigation/native';
-import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import React from 'react';
+import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Text, StatusBar } from 'react-native';
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import 'react-native-gesture-handler';
 //redux imports
-import {Provider, useSelector, useDispatch} from 'react-redux'
-import {createStore, applyMiddleware, combineReducers} from 'redux'
+import { Provider, useSelector, useDispatch } from 'react-redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 //my imports
 import { routes as routeNames } from './src/constants'
@@ -28,12 +28,12 @@ const routes = [
   {
     name: routeNames.rocketsDetails,
     component: RocketsDetails,
-    
+
   },
   {
     name: routeNames.launchesDetails,
     component: LaunchesDetails,
-  
+
   },
   {
     name: routeNames.shipsDetails,
@@ -47,13 +47,13 @@ DeprecatedEdgeInsetsPropType
 const CapsulesStack = createStackNavigator()
 const capsulesRoutes = [{
   name: routeNames.capsulesList,
-  component:CapsulesList ,
+  component: CapsulesList,
 }, ...routes]
 
 const CapsulesStackScreen = () => (
   <CapsulesStack.Navigator>
     {capsulesRoutes.map((route, i) => (
-      <CapsulesStack.Screen key={i} {...route}/>
+      <CapsulesStack.Screen key={i} {...route} />
     ))}
   </CapsulesStack.Navigator>
 )
@@ -68,13 +68,13 @@ const rocketsRoutes = [{
 const RocketsStackScreen = () => (
   <RocketsStack.Navigator>
     {rocketsRoutes.map((route, i) => (
-      <RocketsStack.Screen key={i} {...route}/>
+      <RocketsStack.Screen key={i} {...route} />
     ))}
   </RocketsStack.Navigator>
 )
 
 // Define every view available in the "Home" tab
-const HomeStack= createStackNavigator()
+const HomeStack = createStackNavigator()
 const homeRoutes = [{
   name: routeNames.homeScreen,
   component: HomeScreen,
@@ -83,7 +83,7 @@ const homeRoutes = [{
 const HomeStackScreen = () => (
   <HomeStack.Navigator>
     {homeRoutes.map((route, i) => (
-      <HomeStack.Screen key={i} {...route}/>
+      <HomeStack.Screen key={i} {...route} />
     ))}
   </HomeStack.Navigator>
 )
@@ -98,7 +98,7 @@ const launchesRoutes = [{
 const LaunchesStackScreen = () => (
   <LaunchesStack.Navigator>
     {launchesRoutes.map((route, i) => (
-      <LaunchesStack.Screen key={i} {...route}/>
+      <LaunchesStack.Screen key={i} {...route} />
     ))}
   </LaunchesStack.Navigator>
 )
@@ -113,7 +113,7 @@ const shipsRoutes = [{
 const ShipsStackScreen = () => (
   <ShipsStack.Navigator>
     {shipsRoutes.map((route, i) => (
-      <ShipsStack.Screen key={i} {...route}/>
+      <ShipsStack.Screen key={i} {...route} />
     ))}
   </ShipsStack.Navigator>
 )
@@ -124,45 +124,45 @@ const store = createStore(combineReducers({ themeReducer }), applyMiddleware(thu
 const Tab = createBottomTabNavigator();
 const App = () => (
   <Provider store={store}>
-    <NavigationContainer>
-      <Tab.Navigator 
+    <NavigationContainer theme={DarkTheme}>
+      <Tab.Navigator
         tabBarOptions={{
           activeTintColor: 'red',
           inactiveTintColor: 'white',
         }}
       >
-        <Tab.Screen 
-          name='Capsules' 
-          component={CapsulesStackScreen} 
+        <Tab.Screen
+          name='Capsules'
+          component={CapsulesStackScreen}
           options={{
-          tabBarLabel: 'Capsules',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="battery" color={color} size={26} />
+            tabBarLabel: 'Capsules',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="battery" color={color} size={26} />
             ),
           }}
         />
-        <Tab.Screen 
-          name='Rockets' 
+        <Tab.Screen
+          name='Rockets'
           component={RocketsStackScreen}
           options={{
             tabBarLabel: 'Rockets',
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="rocket-outline" color={color} size={26} />
-              ),
-            }}
-        />
-        <Tab.Screen 
-          name='Home' 
-          component={HomeStackScreen} 
-          options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home-outline" color={color} size={26} />
             ),
           }}
         />
-        <Tab.Screen 
-          name='Launches' 
+        <Tab.Screen
+          name='Home'
+          component={HomeStackScreen}
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="home-outline" color={color} size={26} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name='Launches'
           component={LaunchesStackScreen}
           options={{
             tabBarLabel: 'Launches',
@@ -171,12 +171,12 @@ const App = () => (
             ),
           }}
         />
-        <Tab.Screen 
-          name='Ships' 
-          component={ShipsStackScreen}  
+        <Tab.Screen
+          name='Ships'
+          component={ShipsStackScreen}
           options={{
-          tabBarLabel: 'Ships',
-          tabBarIcon: ({ color }) => (
+            tabBarLabel: 'Ships',
+            tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="ship-wheel" color={color} size={26} />
             ),
           }}

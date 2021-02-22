@@ -18,6 +18,7 @@
     "expo": "~40.0.0",
     "expo-status-bar": "~1.0.3",
     "fontsource-roboto": "^4.0.0",
+    "node": "^15.8.0",
     "octicons-react": "^1.0.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
